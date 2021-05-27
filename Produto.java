@@ -1,4 +1,6 @@
-public abstract class Produto{
+import java.util.Comparator;
+
+public abstract class Produto {
     private static int contId = 0;
     private int id;
     private String nome;
@@ -80,8 +82,20 @@ public abstract class Produto{
         this.imposto = imposto;
     }
 
-    public abstract float obterLucro();
+    @Override
+    public String toString() {
+        String str = String.format("id: %d\n", this.getId());
+        str += String.format("Nome: %s\n", this.getNome());
+        str += String.format("Valor de compra: %.2f\n", this.getValorDeCompra());
+        str += String.format("Valor de venda: %.2f\n", this.getValorDeVenda());
+        str += String.format("Quantidade em estoque: %d\n", this.getQtdEstoque());
+        str += String.format("Quantidade vendido: %d\n", this.getQtdVendido());
+        str += String.format("Imposto: %.2f", this.getImposto());
 
+        return str;
+    }
+
+    public abstract float obterLucro();
 
 }
 

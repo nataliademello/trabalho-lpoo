@@ -20,6 +20,14 @@ public class ProdutoImportado extends Produto {
     }
 
     @Override
+	public String toString() {
+		String str = super.toString();
+		str += String.format("\nTaxa de importação: %s", this.getTaxaImportacao());
+
+		return str;
+	}
+
+    @Override
     public float obterLucro() {
         return this.getValorDeVenda() - this.getImposto() - this.getTaxaImportacao() - this.getValorDeCompra();
     }

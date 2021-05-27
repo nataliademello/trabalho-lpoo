@@ -1,6 +1,7 @@
+import java.util.Comparator;
 
 public class ProdutoArtesanal extends Produto{
-    private static double comissao = 0.2;
+    private static float comissao = 0.2f;
 
     public ProdutoArtesanal(String nome, float valorDeCompra, float valorDeVenda, int qtdEstoque, int qtdVendido, float imposto, float taxaImportacao) {
         super(nome, valorDeCompra, valorDeVenda, qtdEstoque, qtdVendido, imposto);
@@ -10,13 +11,20 @@ public class ProdutoArtesanal extends Produto{
         super(id, nome, valorDeCompra, valorDeVenda, qtdEstoque, qtdVendido, imposto);
     }
 
-    public double getComissao() {
+    public float getComissao() {
 		return comissao;
 	}
 
     @Override
+	public String toString() {
+		String str = super.toString();
+		str += String.format("\nComissão: %s", this.getComissao());
+
+		return str;
+	}
+
+    @Override
     public float obterLucro() {
-        // TODO Auto-generated method stub
-        return 0;
+        return (this.getValorDeVenda() - this.getImposto() - this.getValorDeCompra()) * (1 - this.getComissao());
     }
 }

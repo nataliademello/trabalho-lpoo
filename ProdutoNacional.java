@@ -1,4 +1,3 @@
-
 public class ProdutoNacional extends Produto {
 	
 	private String nomeFornecedor;
@@ -22,6 +21,14 @@ public class ProdutoNacional extends Produto {
 
 	public void setNomeFornecedor(String nomeFornecedor) {
 		this.nomeFornecedor = nomeFornecedor;
+	}
+
+	@Override
+	public String toString() {
+		String str = super.toString();
+		str += String.format("\nNome do fornecedor: %s", this.getNomeFornecedor());
+
+		return str;
 	}
 	
 	
