@@ -1,5 +1,3 @@
-import java.util.Comparator;
-
 public class ProdutoArtesanal extends Produto{
     private static float comissao = 0.2f;
 

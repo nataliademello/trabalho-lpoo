@@ -97,5 +97,30 @@ public abstract class Produto {
 
     public abstract float obterLucro();
 
-}
+    static Comparator<Produto> comparaPorNome() {
+        return new Comparator<Produto>() {
+            @Override
+            public int compare(Produto p1, Produto p2) {
+                return p1.getNome().compareTo(p2.getNome());
+            }  
+        };
+    }
 
+    static Comparator<Produto> comparaPorLucro() {
+        return new Comparator<Produto>() {
+            @Override
+            public int compare(Produto p1, Produto p2) {
+                return (int) (p1.obterLucro() - p2.obterLucro());
+            }
+        };
+    }
+
+    static Comparator<Produto> comparaPorQtdVendidos() {
+        return new Comparator<Produto>() {
+            @Override
+            public int compare(Produto p1, Produto p2) {
+                return p1.getQtdVendido() - p2.getQtdVendido();
+            }
+        };
+    }
+}
